@@ -309,16 +309,15 @@
 }
 
 .card__picture-1 {
-  filter: hue-rotate(326deg) invert(7%);
+  filter: hue-rotate(326deg);
 }
 
 .card__picture-2 {
-  filter: brightness(77%) contrast(111%) grayscale(44%) invert(6%) opacity(100%)
-    saturate(91%);
+  filter: invert(6%);
 }
 
 .card__picture-3 {
-  filter: brightness(119%) saturate(136%);
+  filter: saturate(136%);
 }
 
 .card__picture-4 {
@@ -326,17 +325,17 @@
 }
 
 .card__picture-5 {
-  filter: brightness(74%) contrast(71%) saturate(69%);
+  filter: brightness(74%);
 }
 
 .card__picture-6 {
-  filter: brightness(43%) contrast(80%);
+  filter: contrast(80%);
 }
 
 .card__picture-7 {
-  filter: brightness(117%) opacity(70%);
+  filter: opacity(70%);
 }
 
 .card__picture-8 {
-  filter: brightness(70%) contrast(127%) hue-rotate(298deg) opacity(80%);
+  filter: hue-rotate(298deg);
 }
