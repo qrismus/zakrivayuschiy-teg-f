@@ -17,4 +17,326 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font), sans-serif;
+  font-variation-settings: "wght" var(--text-font-weight, 400);
+  color: var(--themes-main-color);
+  background-color: var(--themes-background);
+  background-image: var(--bg);
+  background-attachment: fixed;
+  background-size: cover;
+  padding-block-start: 100px;
+}
+
+.container {
+  inline-size: var(--container-size);
+  margin: 0 auto;
+  border: 2px solid var(--themes-main-color);
+  background-color: var(--themes-background);
+}
+
+.header {
+  padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+  margin-block-end: 100px;
+}
+
+.header__logo {
+  font-size: var(--logo-font-size);
+  text-decoration: none;
+  margin-block-end: 20px;
+}
+
+.header__title {
+  font-size: var(--title-font-size);
+  margin-block-end: 25px;
+}
+
+.header__theme-menu {
+  padding-inline-start: 20px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+  font-size: 14px;
+}
+
+.theme-menu__button {
+  position: relative;
+  font-size: inherit;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  inline-size: 100%;
+  block-size: 2px;
+  background-color: var(--themes-main-color);
+  left: 0;
+  bottom: -3px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:disabled:focus {
+  outline: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  padding-block-end: 103px;
+}
+
+.card__title {
+  font-size: 18px;
+  font-variation-settings: "wght" var(--title-font-weight);
+  border-bottom: 2px solid var(--themes-main-color);
+  padding: 5px 10px;
+}
+
+.card__container {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__text-decor {
+  position: absolute;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  text-shadow: 0 0 1px var(--themes-background);
+  mix-blend-mode: hard-light;
+  top: clamp(1.4375rem, 1.3935rem + 0.1878vw, 1.5625rem);
+  right: clamp(0.6875rem, 0.3794rem + 1.3146vw, 1.5625rem);
+  z-index: 1;
+}
+
+@supports (-webkit-text-stroke: 1px var(--themes-background)) or
+  (text-stroke: 1px var(--themes-background)) {
+  .card__text-decor {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--themes-background);
+    text-stroke: 1px var(--themes-background);
+  }
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 27px;
+  border-top: 2px solid var(--themes-main-color);
+  padding: 25px;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.card__buttons {
+  display: flex;
+  column-gap: 5px;
+  justify-content: end;
+  padding: 0 25px 25px;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 0;
+  transition: border 0.3s ease;
+  max-block-size: 38px;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--themes-main-color);
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.like-icon {
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.button {
+  border: 2px solid var(--themes-main-color);
+  background-color: var(--themes-background);
+  padding: 9px 17px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  color: var(--color-text-button);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  background-color: var(--themes-main-color);
+  inset: 0;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--themes-main-color);
+}
+
+.button__text {
+  position: relative;
+  mix-blend-mode: difference;
+}
+
+.card__like-button {
+  max-inline-size: 130px;
+  inline-size: 100%;
+}
+
+.button-save {
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.button__floppy-icon {
+  block-size: 21px;
+  mix-blend-mode: difference;
+}
+
+.poput {
+  inline-size: clamp(21.3125rem, 20.9604rem + 1.5023vw, 22.3125rem);
+  border: 2px solid var(--themes-main-color);
+  font-family: var(--accent-font);
+  color: var(--themes-main-color);
+  background-color: var(--themes-background);
+  line-height: 150%;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 32px 42px;
+}
+
+.poput[open] {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 20px;
+  row-gap: 30px;
+  align-items: center;
+}
+
+.poput[open]::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.poput__form {
+  grid-column: 1 / 3;
+}
+
+.poput__button-close {
+  inline-size: 100%;
+  text-transform: uppercase;
+}
+
+.poput__floppy-icon {
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+@media (width <= 376px) {
+  .button-save {
+    flex-direction: column;
+  }
+
+  .card__text {
+    padding: 25px 26px 25px 25px;
+  }
+}
+
+.card__picture-1 {
+  filter: hue-rotate(326deg) invert(7%);
+}
+
+.card__picture-2 {
+  filter: brightness(77%) contrast(111%) grayscale(44%) invert(6%) opacity(100%)
+    saturate(91%);
+}
+
+.card__picture-3 {
+  filter: brightness(119%) saturate(136%);
+}
+
+.card__picture-4 {
+  filter: grayscale(100%);
+}
+
+.card__picture-5 {
+  filter: brightness(74%) contrast(71%) saturate(69%);
+}
+
+.card__picture-6 {
+  filter: brightness(43%) contrast(80%);
+}
+
+.card__picture-7 {
+  filter: brightness(117%) opacity(70%);
+}
+
+.card__picture-8 {
+  filter: brightness(70%) contrast(127%) hue-rotate(298deg) opacity(80%);
 }
